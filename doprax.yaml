@@ -6,8 +6,10 @@ volumes:
 envs:
     - WORDPRESS_DB_HOST: mysql
     - WORDPRESS_DB_NAME: wordpress
+      type: password
     - WORDPRESS_DB_USER: root
     - WORDPRESS_DB_PASSWORD: PASSWORD
+      type: password
 services:
   - mysql:
       tag: 5.7
@@ -16,6 +18,8 @@ services:
           mount: /var/lib/mysql/
       envs:
         - MYSQL_ROOT_PASSWORD: PASSWORD
+          type: password
         - MYSQL_DATABASE: wordpress
         - MYSQL_USER: dbuser01
         - MYSQL_PASSWORD: PASSWORD
+          type: password
